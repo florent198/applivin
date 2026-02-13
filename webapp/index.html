@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AppliVin Web</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>AppliVin</h1>
+      <p>Fiches de degustation et roue des aromes</p>
+    </header>
+
+    <main class="app-main">
+      <section id="view-home" class="view active" aria-label="Accueil">
+        <div class="panel">
+          <h2>Bienvenue</h2>
+          <p>Que souhaitez-vous faire aujourd'hui ?</p>
+          <div class="actions">
+            <button id="btn-create" class="btn primary">Creer une fiche</button>
+            <button id="btn-saved" class="btn">Reprendre une fiche (<span id="saved-count">0</span>)</button>
+          </div>
+        </div>
+
+        <div class="panel guides">
+          <h3>Methode de degustation</h3>
+          <div class="guide-links">
+            <button class="btn guide-btn" data-guide="visual">Visuel</button>
+            <button class="btn guide-btn" data-guide="nose">Nez</button>
+            <button class="btn guide-btn" data-guide="gustative">Gustatif</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-editor" class="view" aria-label="Editeur">
+        <div class="panel">
+          <h2 id="editor-title">Nouvelle fiche</h2>
+          <form id="wine-form" class="wine-form">
+            <label>
+              Nom du vin
+              <input name="name" required />
+            </label>
+            <div class="grid-2">
+              <label>
+                Millesime
+                <input name="vintage" />
+              </label>
+              <label>
+                Producteur
+                <input name="producer" />
+              </label>
+            </div>
+            <label>
+              Appellation / Region
+              <input name="appellation" />
+            </label>
+            <label>
+              Cepages
+              <input name="grapes" />
+            </label>
+
+            <fieldset>
+              <legend>Type de vin</legend>
+              <label><input type="radio" name="color" value="rouge" checked /> Rouge</label>
+              <label><input type="radio" name="color" value="blanc" /> Blanc</label>
+              <label><input type="radio" name="color" value="rose" /> Rose</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Longueur</legend>
+              <label><input type="radio" name="length" value="court" checked /> Court</label>
+              <label><input type="radio" name="length" value="moyen" /> Moyen</label>
+              <label><input type="radio" name="length" value="long" /> Long</label>
+              <label><input type="radio" name="length" value="exceptionnel" /> Exceptionnel</label>
+            </fieldset>
+
+            <label>
+              Note (1-5)
+              <input type="range" min="1" max="5" step="1" name="rating" value="4" />
+              <output id="rating-output">4</output>
+            </label>
+
+            <label>
+              Notes de degustation
+              <textarea name="notes" rows="4"></textarea>
+            </label>
+
+            <label>
+              Photo de la bouteille
+              <input type="file" name="photo" accept="image/*" />
+            </label>
+            <img id="photo-preview" alt="Apercu" class="photo-preview hidden" />
+
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Enregistrer</button>
+              <button type="button" id="btn-cancel-edit" class="btn">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="view-saved" class="view" aria-label="Fiches sauvegardees">
+        <div class="panel">
+          <h2>Fiches sauvegardees</h2>
+          <div id="saved-list" class="saved-list"></div>
+        </div>
+      </section>
+
+      <section id="view-wheel" class="view" aria-label="Roue des aromes">
+        <div class="panel">
+          <h2>Roue des aromes</h2>
+          <p>Touchez une zone pour afficher les aromes associes.</p>
+          <div id="wheel-wrap" class="wheel-wrap"></div>
+          <aside id="aroma-panel" class="aroma-panel">
+            <h3 id="aroma-title">Selectionnez une categorie</h3>
+            <ul id="aroma-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-guide" class="view" aria-label="Guide">
+        <div class="panel">
+          <div class="guide-head">
+            <button id="btn-back-guide" class="btn">Retour</button>
+            <h2 id="guide-title">Guide</h2>
+          </div>
+          <div id="guide-content" class="guide-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navigation principale">
+      <button data-view="home" class="nav-btn active">Accueil</button>
+      <button data-view="wheel" class="nav-btn">Roue des Aromes</button>
+    </nav>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

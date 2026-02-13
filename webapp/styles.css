@@ -1,0 +1,293 @@
+:root {
+  --bg: #f4eee6;
+  --panel: #fffaf5;
+  --ink: #2c241d;
+  --accent: #9b1d30;
+  --accent-soft: #f3d9de;
+  --line: #d7cabc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at top, #fff5eb, var(--bg));
+  color: var(--ink);
+}
+
+.app-header {
+  padding: 20px 16px 6px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  color: #6d5e51;
+}
+
+.app-main {
+  padding: 8px 16px 90px;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 14px 30px rgba(73, 48, 30, 0.08);
+}
+
+.panel + .panel {
+  margin-top: 14px;
+}
+
+.actions,
+.form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.wine-form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input,
+textarea,
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+fieldset {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+fieldset label {
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.photo-preview {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.hidden {
+  display: none;
+}
+
+.saved-list {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-links {
+  display: grid;
+  gap: 8px;
+}
+
+.guide-btn {
+  text-align: left;
+}
+
+.saved-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.saved-item h4 {
+  margin: 0 0 6px;
+}
+
+.saved-item p {
+  margin: 4px 0;
+  color: #6d5e51;
+}
+
+.saved-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.wheel-wrap {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  overflow: auto;
+}
+
+.wheel-wrap svg {
+  width: 100%;
+  min-width: 300px;
+  height: auto;
+  display: block;
+}
+
+.aroma-panel {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.aroma-panel ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.guide-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-head h2 {
+  margin: 0;
+}
+
+.guide-content {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.guide-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.guide-card h3 {
+  margin: 0 0 8px;
+}
+
+.guide-card h4 {
+  margin: 10px 0 6px;
+}
+
+.guide-card p {
+  margin: 6px 0;
+}
+
+.guide-card ul {
+  margin: 6px 0;
+  padding-left: 18px;
+}
+
+.guide-note {
+  color: #6d5e51;
+  font-style: italic;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--panel);
+  padding: 8px;
+  backdrop-filter: blur(6px);
+}
+
+.nav-btn {
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 700;
+  color: #5e4a39;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2f2a25;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  z-index: 20;
+}
+
+@media (min-width: 900px) {
+  .app-main {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+}
